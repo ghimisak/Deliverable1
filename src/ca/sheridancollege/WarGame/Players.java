@@ -4,6 +4,7 @@ package ca.sheridancollege.WarGame;
 import ca.sheridancollege.projectStarterCode.Player;
 import ca.sheridancollege.projectStarterCode.Card;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -40,5 +41,24 @@ public class Players extends Player {
 
     public ArrayList<Card> getHand() {
         return hand;
+    }
+    
+    @Override
+       public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Players otherPlayer = (Players) obj;
+        return this.getName().equals(otherPlayer.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.hand);
+        return hash;
     }
 }

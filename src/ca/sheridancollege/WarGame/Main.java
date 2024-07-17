@@ -21,6 +21,13 @@ public class Main {
         Players player1 = new Players(in.nextLine());
         System.out.print("Enter player 2 Name: ");
         Players player2 = new Players(in.nextLine());
+        //        using if condition to compare names
+        
+         if (player1.equals(player2)) {
+            System.out.println("Error: Player names cannot be the same. Please enter different names.");
+            System.out.print("Enter player 2 name: ");
+            player2 = new Players(in.nextLine().trim());
+        }
 
         game.addPlayer(player1);
         game.addPlayer(player2);
